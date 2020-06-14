@@ -129,3 +129,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'users.paginations.IdPagination',
     'PAGE_SIZE': 2,
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+
