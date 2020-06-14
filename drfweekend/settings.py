@@ -128,6 +128,14 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'users.paginations.IdPagination',
     'PAGE_SIZE': 2,
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],  # Throttling 설정, anon: 비로그인 상태
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day',
+        'user': '3/minute',
+    },
 }
 
 CACHES = {
